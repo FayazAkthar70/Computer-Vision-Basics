@@ -16,14 +16,13 @@ class handDetector():
         self.hands = self.mpHands.Hands(self.mode, self.max_hands, self.complexity, self.detection_con, self.tracking_con)
         self.mpDraw = mp.solutions.mediapipe.python.solutions.drawing_utils
     
-    def find_hand(self, img, draw=True):
+    def find_hand(self, img):
             imgRGB = cv.cvtColor(img, code=cv.COLOR_BGR2RGB)
             self.results = self.hands.process(imgRGB)
 
             if self.results.multi_hand_landmarks:
                 for hand in self.results.multi_hand_landmarks:
-                    if draw:
-                        self.mpDraw.draw_landmarks(img, hand, self.mpHands.HAND_CONNECTIONS)
+                    self.mpDraw.draw_landmarks(img, hand, self.mpHands.HAND_CONNECTIONS)
             return img
             
     def find_position(self, img, draw=True, hand_no=0):

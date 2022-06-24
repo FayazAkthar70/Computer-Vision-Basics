@@ -1,5 +1,4 @@
 import cv2 as cv
-import mediapipe as mp
 import time
 import handTrackingModule as htm
 
@@ -19,7 +18,7 @@ while True:
     cv.putText(img, fps, (10,70), cv.FONT_HERSHEY_COMPLEX, 2,(0,0,0), 3)
     
     cv.imshow('video',img)
-    if cv.waitKey(10) & 0xFF == ord("q"):
+    if cv.waitKey(10) & 0xFF == ord("q"):   #press q to close video
         break
     
 vid.release()
