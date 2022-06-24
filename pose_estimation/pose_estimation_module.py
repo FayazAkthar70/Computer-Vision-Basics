@@ -13,7 +13,7 @@ class Pose_detector():
         self.track_conf = track_conf
         
         self.mpPose = mp.solutions.mediapipe.python.solutions.pose
-        self.pose = self.mpPose.Pose()
+        self.pose = self.mpPose.Pose(self.mode, self.complex, self.smooth, self.segment, self.smooth_segment, self.detection_conf, self.track_conf)
         self.mpDraw = mp.solutions.mediapipe.python.solutions.drawing_utils
     
     def find_pose(self, img):
